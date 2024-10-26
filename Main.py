@@ -38,3 +38,4 @@ Explore these features to make smarter real estate decisions, whether you are an
 # Footer
 st.markdown("---")
 st.markdown("© 2024 Estate Insights | All Rights Reserved")
+
