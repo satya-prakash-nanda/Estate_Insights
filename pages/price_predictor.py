@@ -3,6 +3,7 @@ import pickle
 import pandas as pd
 import numpy as np
 # import joblib
+import gzip
 
 st.set_page_config(page_title="Viz Demo")
 
@@ -10,12 +11,19 @@ st.set_page_config(page_title="Viz Demo")
 with open('df.pkl', 'rb') as file:
     df = pickle.load(file)
 
-# load pipeline
+# # load pipeline
+# try:
+#     with open('pipeline.pkl', 'rb') as file:
+#         pipeline = pickle.load(file)
+# except Exception as e:
+#     st.error(f"An error occurred while loading the pipeline: {e}")
+
 try:
-    with open('pipeline.pkl', 'rb') as file:
+    with gzip.open('pipeline.pkl.gz', 'rb') as file:  # Change to .gz if compressed
         pipeline = pickle.load(file)
 except Exception as e:
     st.error(f"An error occurred while loading the pipeline: {e}")
+
 
 
 # st.dataframe(df)
